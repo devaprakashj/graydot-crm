@@ -463,17 +463,17 @@ const AdminView: React.FC<{ user: any }> = ({ user }) => {
           <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginBottom: '32px'}}>
             <div className="glass-card p-24" style={{borderLeft: '4px solid #10b981'}}>
               <span className="text-muted" style={{fontSize: '0.85rem', fontWeight: 600}}>REALIZED REVENUE</span>
-              <h2 style={{margin: '8px 0', color: '#059669'}}>₹{financeStats?.received.toLocaleString() || 0}</h2>
+              <h2 style={{margin: '8px 0', color: '#059669'}}>₹{financeStats?.received?.toLocaleString() || 0}</h2>
               <p style={{fontSize: '0.75rem', color: 'var(--gray-400)'}}>From Delivered/Completed Projects</p>
             </div>
             <div className="glass-card p-24" style={{borderLeft: '4px solid #f59e0b'}}>
               <span className="text-muted" style={{fontSize: '0.85rem', fontWeight: 600}}>PENDING COLLECTION</span>
-              <h2 style={{margin: '8px 0', color: '#d97706'}}>₹{financeStats?.pending.toLocaleString() || 0}</h2>
+              <h2 style={{margin: '8px 0', color: '#d97706'}}>₹{financeStats?.pending?.toLocaleString() || 0}</h2>
               <p style={{fontSize: '0.75rem', color: 'var(--gray-400)'}}>From Approved Active Leads</p>
             </div>
             <div className="glass-card p-24" style={{borderLeft: '4px solid #3b82f6'}}>
               <span className="text-muted" style={{fontSize: '0.85rem', fontWeight: 600}}>TOTAL PIPE-LINE</span>
-              <h2 style={{margin: '8px 0', color: '#2563eb'}}>₹{financeStats?.potential.toLocaleString() || 0}</h2>
+              <h2 style={{margin: '8px 0', color: '#2563eb'}}>₹{financeStats?.potential?.toLocaleString() || 0}</h2>
               <p style={{fontSize: '0.75rem', color: 'var(--gray-400)'}}>Potential from All Leads</p>
             </div>
           </div>
@@ -492,7 +492,7 @@ const AdminView: React.FC<{ user: any }> = ({ user }) => {
               </div>
               <div style={{width: '1px', height: '40px', background: 'var(--gray-200)'}}></div>
               <div style={{textAlign: 'center'}}>
-                <div style={{fontSize: '2rem', fontWeight: 800, color: '#10b981'}}>{financeStats?.leadCount ? Math.round((financeStats.projectCount / financeStats.leadCount) * 100) : 0}%</div>
+                <div style={{fontSize: '2rem', fontWeight: 800, color: '#10b981'}}>{financeStats?.leadCount ? Math.round(((financeStats.projectCount || 0) / financeStats.leadCount) * 100) : 0}%</div>
                 <div className="text-muted" style={{fontSize: '0.8rem'}}>Conversion Rate</div>
               </div>
             </div>
