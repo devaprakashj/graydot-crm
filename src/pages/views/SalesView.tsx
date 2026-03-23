@@ -290,7 +290,6 @@ const SalesView: React.FC<{ user: any }> = ({ user }) => {
                 style={{flex: 1}}
                 onClick={() => {
                    const printContents = document.getElementById('printable-invoice')?.innerHTML;
-                   const originalContents = document.body.innerHTML;
                    const printWindow = window.open('', '_blank');
                    if (printWindow) {
                      printWindow.document.write(`<html><head><title>Invoice_${invoiceLead[0]}</title><style>body { font-family: sans-serif; padding: 20px; }</style></head><body>${printContents}</body></html>`);

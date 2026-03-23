@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { request, getRequest } from '../../services/api';
-import { ShieldCheck, XCircle, CheckCircle, Clock, AlertTriangle, ExternalLink, Github, Globe, Code } from 'lucide-react';
+import { ShieldCheck, XCircle, CheckCircle, ExternalLink, Github, Globe, Code } from 'lucide-react';
 
 const TestingView: React.FC<{ user: any }> = ({ user }) => {
   const [projects, setProjects] = useState<any[]>([]);
