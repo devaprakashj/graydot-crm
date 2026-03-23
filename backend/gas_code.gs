@@ -50,6 +50,18 @@ function handleGet(e) {
       return createResponse({ success: false, message: 'Account disabled. Please contact admin.' });
     }
 
+    // SECURITY CHECK: Verify if Admin-only actions are triggered by an actual Admin
+    const adminActions = ['getUsers', 'getOrphanedWork', 'getActivityLogs', 'getFinanceStats', 'getTeamPerformance', 'format', 'resetSystem'];
+    if (adminActions.includes(action)) {
+      if (role !== 'Admin') return createResponse({ success: false, message: 'UNAUTHORIZED: Admin access required.' });
+      
+      // Secondary verification: Check sheet to ensure this email is TRULY an admin
+      const uSheet = getSheet('USERS');
+      const uVals = uSheet.getDataRange().getValues();
+      const actualUser = uVals.find(r => r[2] === email && r[3] === 'Admin' && r[4] === 'Active');
+      if (!actualUser) return createResponse({ success: false, message: 'SECURITY_ALERT: Role spoofing detected.' });
+    }
+
     switch (action) {
       case 'getLeads': return getLeads(role, email);
       case 'getUsers': return getUsers();
@@ -60,6 +72,7 @@ function handleGet(e) {
       case 'getFinanceStats': return getFinanceStats();
       case 'getTeamPerformance': return getTeamPerformance();
       case 'format': return createResponse({ success: true, message: formatSheets() });
+      case 'resetSystem': return resetSystem();
       default: throw new Error('Invalid action');
     }
   } catch (error) {
@@ -917,4 +930,25 @@ function getTeamPerformance() {
   });
 
   return createResponse({ success: true, data: perfData });
+}
+
+function resetSystem() {
+  const sheetsToClear = ["LEADS", "PROJECTS", "ACTIVITY LOG", "OTP"];
+  sheetsToClear.forEach(name => {
+    const sheet = getSheet(name);
+    if (sheet.getLastRow() > 1) {
+      sheet.deleteRows(2, sheet.getLastRow() - 1);
+    }
+  });
+
+  const uSheet = getSheet("USERS");
+  const uVals = uSheet.getDataRange().getValues();
+  const adminRows = uVals.filter((r, idx) => idx === 0 || (r[3] === "Admin" && r[4] === "Active"));
+
+  uSheet.clear();
+  if (adminRows.length > 0) {
+    uSheet.getRange(1, 1, adminRows.length, adminRows[0].length).setValues(adminRows);
+  }
+
+  return createResponse({ success: true, message: "System reset completed. All business data cleared. Admins preserved." });
 }
