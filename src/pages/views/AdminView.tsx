@@ -74,16 +74,18 @@ const AdminView: React.FC<{ user: any }> = ({ user }) => {
 
   const fetchAllLeads = async () => {
     try {
-      const res = await getRequest('getLeads', { role: 'Admin' });
+      const res = await getRequest('getLeads', { role: 'Admin', email: user.email });
       if (res.success) setAllLeads(res.data);
+      else if (res.message.includes('UNAUTHORIZED')) alert("Restricted: " + res.message);
       else console.error("Leads fail:", res.message);
     } catch (e) { console.error("Leads crash:", e); }
   };
 
   const fetchPerformance = async () => {
     try {
-      const res = await getRequest('getTeamPerformance');
+      const res = await getRequest('getTeamPerformance', { role: 'Admin', email: user.email });
       if (res.success) setPerformance(res.data);
+      else if (res.message.includes('UNAUTHORIZED')) alert("Restricted: " + res.message);
     } catch (e) { console.error(e); }
   };
 
@@ -96,22 +98,25 @@ const AdminView: React.FC<{ user: any }> = ({ user }) => {
 
   const fetchLogs = async () => {
     try {
-      const res = await getRequest('getActivityLogs', { email: user.email });
+      const res = await getRequest('getActivityLogs', { role: 'Admin', email: user.email });
       if (res.success) setActivityLogs(res.data);
+      else if (res.message.includes('UNAUTHORIZED')) alert("Restricted: " + res.message);
     } catch (e) { console.error(e); }
   };
 
   const fetchOrphanedWork = async () => {
     try {
-      const res = await getRequest('getOrphanedWork', { email: user.email });
+      const res = await getRequest('getOrphanedWork', { role: 'Admin', email: user.email });
       if (res.success) setOrphanedWork(res.data);
+      else if (res.message.includes('UNAUTHORIZED')) alert("Restricted: " + res.message);
     } catch (e) { console.error(e); }
   };
 
   const fetchUsers = async () => {
     try {
-      const res = await getRequest('getUsers');
+      const res = await getRequest('getUsers', { role: 'Admin', email: user.email });
       if (res.success) setTeam(res.data);
+      else if (res.message.includes('UNAUTHORIZED')) alert("Restricted: " + res.message);
       else alert("Restricted: " + res.message);
     } catch (e) { console.error(e); }
   };

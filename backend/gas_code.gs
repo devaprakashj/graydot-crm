@@ -43,8 +43,8 @@ function doPost(e) {
 function handleGet(e) {
   try {
     const action = e.parameter.action;
-    const role = e.parameter.role;
-    const email = e.parameter.email;
+    const role = (e.parameter.role || "").trim();
+    const email = (e.parameter.email || "").trim().toLowerCase();
 
     if (email && isUserDisabled(email)) {
       return createResponse({ success: false, message: 'Account disabled. Please contact admin.' });
@@ -53,12 +53,16 @@ function handleGet(e) {
     // SECURITY CHECK: Verify if Admin-only actions are triggered by an actual Admin
     const adminActions = ['getUsers', 'getOrphanedWork', 'getActivityLogs', 'getFinanceStats', 'getTeamPerformance', 'format', 'resetSystem'];
     if (adminActions.includes(action)) {
-      if (role !== 'Admin') return createResponse({ success: false, message: 'UNAUTHORIZED: Admin access required.' });
+      if (role.toLowerCase() !== 'admin') return createResponse({ success: false, message: 'UNAUTHORIZED: Admin access required.' });
       
       // Secondary verification: Check sheet to ensure this email is TRULY an admin
       const uSheet = getSheet('USERS');
       const uVals = uSheet.getDataRange().getValues();
-      const actualUser = uVals.find(r => r[2] === email && r[3] === 'Admin' && r[4] === 'Active');
+      const actualUser = uVals.find(r => 
+        r[2].toString().trim().toLowerCase() === email && 
+        r[3].toString().trim().toLowerCase() === 'admin' && 
+        r[4].toString().trim() === 'Active'
+      );
       if (!actualUser) return createResponse({ success: false, message: 'SECURITY_ALERT: Role spoofing detected.' });
     }
 
