@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import './index.css';
@@ -81,8 +82,8 @@ const App: React.FC = () => {
         
         {/* Fallbacks */}
         <Route path="/dashboard/*" element={user ? <Navigate to={getHomePath(user.role)} /> : <Navigate to="/login" />} />
-        <Route path="/" element={<Navigate to={user ? getHomePath(user.role) : "/login"} />} />
-        <Route path="*" element={<Navigate to="/login" />} />
+        <Route path="/" element={user ? <Navigate to={getHomePath(user.role)} /> : <Landing />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
