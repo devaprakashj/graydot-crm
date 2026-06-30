@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
+import StartProject from './pages/StartProject';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import './index.css';
@@ -71,6 +72,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={user ? <Navigate to={getHomePath(user.role)} /> : <Login onLogin={handleLogin} />} />
+        <Route path="/start-project" element={<StartProject />} />
         
         {/* Protected Routes for each Role */}
         <Route path="/admin/*" element={user?.role === 'Admin' ? <Dashboard user={user} onLogout={handleLogout} /> : <Navigate to="/login" />} />
