@@ -87,13 +87,14 @@ const Navbar: React.FC = () => {
       {/* ──────────────── Header row ──────────────── */}
       <header className={`gd-header${scrolled ? ' gd-header--scrolled' : ''}`}>
 
-        {/* Logo (Visible on desktop and mobile) */}
-        <div className="gd-header-logo" onClick={() => { setMenuOpen(false); navigate('/'); }} style={{ cursor: 'pointer' }}>
-          <img src="/header-logo.png" alt="GrayDot Logo" className="gd-header-img" />
-        </div>
-
-        {/* Glass pill — links only, centered */}
+        {/* Unified Glass pill */}
         <nav className="gd-float-nav" aria-label="Primary navigation">
+          
+          {/* Logo */}
+          <div className="gd-header-logo" onClick={() => { setMenuOpen(false); navigate('/'); }} style={{ cursor: 'pointer' }}>
+            <img src="/header-logo.png" alt="GrayDot Logo" className="gd-header-img" />
+          </div>
+
           <div
             className="gd-float-links"
             ref={navLinksRef}
@@ -122,18 +123,18 @@ const Navbar: React.FC = () => {
               </button>
             ))}
           </div>
+
+          {/* Hamburger — mobile only (right side) */}
+          <button
+            className="gd-float-hamburger"
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+
         </nav>
-
-        {/* Hamburger — mobile only (right side) */}
-        <button
-          className="gd-float-hamburger"
-          onClick={() => setMenuOpen(v => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
-
       </header>
 
       {/* ──────────────── Mobile drawer ──────────────── */}
