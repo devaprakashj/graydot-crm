@@ -60,9 +60,7 @@ const ServicesSection: React.FC = () => {
                 {featured.chips.map(c => <span key={c} className="gd-service-chip">{c}</span>)}
               </div>
             )}
-            <div className="gd-service-link" style={{ color: featured.color }}>
-              Learn more <ArrowRight size={14} />
-            </div>
+
           </div>
 
           {/* rest */}
@@ -82,9 +80,7 @@ const ServicesSection: React.FC = () => {
               </div>
               <h3>{svc.title}</h3>
               <p>{svc.desc}</p>
-              <div className="gd-service-link" style={{ color: svc.color }}>
-                Learn more <ArrowRight size={14} />
-              </div>
+
             </div>
           ))}
         </div>
