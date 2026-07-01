@@ -275,7 +275,6 @@
   height: 52px;
   width: auto;
   object-fit: contain;
-  mix-blend-mode: lighten; /* Removes the black background box */
 }
 
 /* ── Glass pill — horizontally centered via flex ── */
