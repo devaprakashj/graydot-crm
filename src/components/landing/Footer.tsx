@@ -30,24 +30,6 @@ const Footer: React.FC = () => {
               >
                 <Linkedin size={16} />
               </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="gd-social-btn"
-                aria-label="Instagram"
-              >
-                <Instagram size={16} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="gd-social-btn"
-                aria-label="Twitter / X"
-              >
-                <Twitter size={16} />
-              </a>
             </div>
           </div>
 
