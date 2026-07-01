@@ -87,10 +87,9 @@ const Navbar: React.FC = () => {
       {/* ──────────────── Header row ──────────────── */}
       <header className={`gd-header${scrolled ? ' gd-header--scrolled' : ''}`}>
 
-        {/* Mobile Logo (Visible only on mobile) */}
+        {/* Logo (Visible on desktop and mobile) */}
         <div className="gd-header-logo" onClick={() => { setMenuOpen(false); navigate('/'); }} style={{ cursor: 'pointer' }}>
-          <span style={{ fontWeight: 800, fontSize: '18px', color: '#fff', letterSpacing: '-0.02em' }}>GrayDot</span>
-          <span style={{ color: 'var(--gd-accent)', fontWeight: 800, fontSize: '18px' }}>.</span>
+          <img src="/header-logo.png" alt="GrayDot Logo" className="gd-header-img" />
         </div>
 
         {/* Glass pill — links only, centered */}
