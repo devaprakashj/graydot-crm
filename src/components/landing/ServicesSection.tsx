@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Smartphone, Bot, ShoppingCart, TrendingUp, Palette, Share2, ArrowRight } from 'lucide-react';
+import { Globe, Smartphone, Bot, ShoppingCart, TrendingUp, Palette, Share2 } from 'lucide-react';
 import { useReveal } from './useReveal';
 
 const SERVICES = [
