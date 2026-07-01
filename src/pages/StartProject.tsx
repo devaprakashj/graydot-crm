@@ -59,8 +59,8 @@ ${formData.description}`;
 
   return (
     <div className="gd-page gd-form-page">
-      {/* We pass a no-op to onGetQuote so the navbar button doesn't do anything or just scrolls to top */}
-      <Navbar onGetQuote={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+      {/* Navbar without unused props */}
+      <Navbar />
       
       <main className="gd-form-container">
         <div className="gd-form-header">
