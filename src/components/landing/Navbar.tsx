@@ -92,7 +92,7 @@ const Navbar: React.FC = () => {
           
           {/* Logo */}
           <div className="gd-header-logo" onClick={() => { setMenuOpen(false); navigate('/'); }} style={{ cursor: 'pointer' }}>
-            <img src="/header-logo.png" alt="GrayDot Logo" className="gd-header-img" />
+            <img src="/header-logo.png?v=2" alt="GrayDot Logo" className="gd-header-img" />
           </div>
 
           <div
