@@ -1809,6 +1809,8 @@
    ============================================================ */
 @media (max-width: 768px) {
   :root { --gd-section-py: 64px; }
+  
+  html, body { overflow-x: hidden; width: 100%; }
 
   /* header — hide pill links, show hamburger */
   .gd-float-nav { display: none; }
@@ -1819,7 +1821,18 @@
   .gd-hero-divider { display: none; }
 
   .gd-services-grid { grid-template-columns: 1fr; }
+  .gd-service-card { grid-column: span 1 !important; }
   .gd-service-card.gd-service-featured { grid-row: auto; }
+  
+  .gd-work-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  .gd-work-filter::-webkit-scrollbar { display: none; }
 
   .gd-work-grid { grid-template-columns: 1fr; }
   .gd-work-card.gd-work-featured { grid-column: span 1; }
