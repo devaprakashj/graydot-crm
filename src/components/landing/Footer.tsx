@@ -92,8 +92,11 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--gd-muted)', fontSize: 14 }}>
-                  <MapPin size={14} /> Kochi, Kerala, India
+                <span style={{ display: 'flex', alignItems: 'flex-start', gap: 6, color: 'var(--gd-muted)', fontSize: 14, lineHeight: '1.4' }}>
+                  <MapPin size={14} style={{ flexShrink: 0, marginTop: 2 }} /> 
+                  Priyanka Homes, B block Ground Floor B01,<br />
+                  RR Nagar 4th Street, Iyyapanthangal,<br />
+                  Chennai-600056.
                 </span>
               </li>
             </ul>
