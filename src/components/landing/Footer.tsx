@@ -88,10 +88,6 @@ const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="gd-footer-bottom">
           <span>© {new Date().getFullYear()} GrayDot Digital Solutions. All rights reserved.</span>
-          <div className="gd-footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div>
         </div>
       </div>
     </footer>
