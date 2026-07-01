@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://graydot.in/sitemap.xml
+Sitemap: https://graydot.vercel.app/sitemap.xml
