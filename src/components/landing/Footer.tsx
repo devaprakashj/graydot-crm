@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer">
+                <a href="https://wa.me/918667466390" target="_blank" rel="noreferrer">
                   <Phone size={14} /> WhatsApp Us
                 </a>
               </li>
