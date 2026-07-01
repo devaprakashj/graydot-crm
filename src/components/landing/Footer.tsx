@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const scrollTo = (id: string) =>
