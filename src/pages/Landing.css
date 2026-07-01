@@ -263,6 +263,9 @@
   padding: 12px 24px;
 }
 
+/* Hide mobile logo on desktop by default */
+.gd-header-logo { display: none; }
+
 /* ── Glass pill — horizontally centered via flex ── */
 .gd-float-nav {
   pointer-events: all;
@@ -1812,7 +1815,9 @@
   
   html, body { overflow-x: hidden; width: 100%; }
 
-  /* header — hide pill links, show hamburger */
+  /* header — hide pill links, show hamburger and logo */
+  .gd-header { justify-content: space-between; padding: 16px 20px; }
+  .gd-header-logo { display: flex; align-items: center; }
   .gd-float-nav { display: none; }
   .gd-float-hamburger { display: flex; }
 
