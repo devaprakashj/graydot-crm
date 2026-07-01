@@ -112,7 +112,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, globalError }) => {
             id="name"
             name="name"
             className={`gd-form-input ${errors.name && touched.name ? 'gd-error' : ''}`}
-            placeholder="John Doe"
+            placeholder="Rahul Kumar"
             value={formData.name}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -143,7 +143,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, globalError }) => {
             id="email"
             name="email"
             className={`gd-form-input ${errors.email && touched.email ? 'gd-error' : ''}`}
-            placeholder="john@example.com"
+            placeholder="rahul@example.in"
             value={formData.email}
             onChange={handleChange}
             onBlur={handleBlur}
@@ -158,7 +158,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, globalError }) => {
             id="phone"
             name="phone"
             className={`gd-form-input ${errors.phone && touched.phone ? 'gd-error' : ''}`}
-            placeholder="+1 (555) 000-0000"
+            placeholder="+91 98765 43210"
             value={formData.phone}
             onChange={handleChange}
             onBlur={handleBlur}
