@@ -105,13 +105,15 @@ const Hero: React.FC = () => {
       STATS.forEach((stat, i) => {
         const el = els[i];
         if (!el) return;
-        const raw = parseInt(stat.num, 10);
+        const raw = parseFloat(stat.num);
         if (isNaN(raw)) return;
-        const suffix = stat.num.replace(/[\d]/g, '');
+        const suffix = stat.num.replace(/[\d.]/g, '');
+        const isDecimal = stat.num.includes('.');
         const dur = 1400;
         const step = (ts: number, t0: number) => {
           const p = Math.min((ts - t0) / dur, 1);
-          el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * raw) + suffix;
+          const val = (1 - Math.pow(1 - p, 3)) * raw;
+          el.textContent = (isDecimal ? val.toFixed(1) : Math.floor(val)) + suffix;
           if (p < 1) requestAnimationFrame(t => step(t, t0));
         };
         requestAnimationFrame(t => step(t, t));
