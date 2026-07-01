@@ -1623,11 +1623,12 @@
   margin-bottom: 48px;
 }
 
-.gd-footer-logo-vid {
-  height: 32px;
+.gd-footer-logo-img {
+  height: 64px;
   width: auto;
   display: block;
   margin-bottom: 16px;
+  border-radius: 12px;
 }
 
 .gd-footer-tagline {

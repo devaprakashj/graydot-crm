@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
         <div className="gd-footer-grid">
           {/* Brand column */}
           <div>
-            <video
-              src="/logo.mp4"
-              autoPlay loop muted playsInline
-              className="gd-footer-logo-vid"
+            <img
+              src="/footer-logo.png"
+              alt="GrayDot Logo"
+              className="gd-footer-logo-img"
             />
             <p className="gd-footer-tagline">
               We build websites, apps, AI automation systems,
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
               <li><button onClick={() => scrollTo('process')}>Process</button></li>
               <li><button onClick={() => scrollTo('testimonials')}>Testimonials</button></li>
               <li><button onClick={() => scrollTo('faq')}>FAQ</button></li>
-              <li><a href="mailto:careers@graydot.in">Careers</a></li>
+              <li><a href="mailto:graydotservices@gmail.com">Careers</a></li>
             </ul>
           </div>
 
@@ -82,8 +82,8 @@ const Footer: React.FC = () => {
             <h4>Contact</h4>
             <ul>
               <li>
-                <a href="mailto:hi@graydot.in">
-                  <Mail size={14} /> hi@graydot.in
+                <a href="mailto:graydotservices@gmail.com">
+                  <Mail size={14} /> graydotservices@gmail.com
                 </a>
               </li>
               <li>

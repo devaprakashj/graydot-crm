@@ -47,7 +47,7 @@ const SuccessState: React.FC<SuccessStateProps> = ({ leadId }) => {
       </div>
       
       <div className="gd-success-actions">
-        <button className="gd-btn gd-btn-primary" onClick={() => window.open('https://calendly.com', '_blank')}>
+        <button className="gd-btn gd-btn-primary" onClick={() => window.open(`https://wa.me/918667466390?text=Hi, I just submitted a project enquiry (ID: ${leadId}). I'd like to discuss it!`, '_blank')}>
           <Calendar size={18} /> Book a Call Now
         </button>
         <button className="gd-btn gd-btn-secondary" onClick={() => navigate('/')}>

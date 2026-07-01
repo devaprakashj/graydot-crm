@@ -33,9 +33,9 @@ const CTASection: React.FC = () => (
             Start a Project <ArrowRight size={18} />
           </Link>
 
-          <a href="mailto:hi@graydot.in" className="gd-cta-email-link">
+          <a href="mailto:graydotservices@gmail.com" className="gd-cta-email-link">
             <Mail size={16} />
-            hi@graydot.in
+            graydotservices@gmail.com
           </a>
         </div>
 
